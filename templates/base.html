@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- url bar mobile color -->
+  <!-- <meta name="theme-color" content="#335EEA" /> -->  
+
+  <meta name="viewport" content="width=1024">
+  <title>PREDIE - Price Predictor</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <link rel="icon" type="image/png" href="static/favicon.png" />
+
+  <style>
+    html {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      zoom: 90%;
+    }
+
+    body {
+      zoom: 90%;
+      width: 100%;
+      background-color: #131313;
+      margin-top: 2.6em;
+      margin-bottom: 3em;
+      font-family: 'Cabin', sans-serif;
+      color: #CFCFCF;
+    }
+
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #c0c0c0;
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #666666;
+    }
+
+    .navibar div{
+      display: flex; 
+			align-items: center; 
+			justify-content: center;
+    }
+
+    .navibar div a{
+      font-size: 1.4em !important;
+      text-decoration: none;
+      color: #bbbbbb;
+    }
+
+    .navibar div a:hover{
+      color: #ad2a54;
+    }
+
+    #logout-btn{
+      color: white !important;
+      background-color: #ad2a54 !important;
+    }
+
+    #logout-btn:hover{
+      background-color: #811b3b !important;
+    }
+
+    #logo{
+      font-weight: 700;
+      letter-spacing: 4px;
+      font-size: 2.2em;
+      margin-top: -0.5em;
+    }
+
+    hr{
+      border-top: solid rgb(43, 43, 43);
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container" style="width: 96%;">
+
+    <div class="row navibar" style="width: 96%; margin: auto;">
+      <div class="col" id="logo">
+        <a href="/"> PREDIE. </a>
+      </div>
+
+      <div class="col"> 
+        <a href="/team"> team </a>
+      </div>
+
+      <div class="col">
+        <a href="/about"> about </a>
+      </div>
+
+      <div class="col">
+        <a href="/contact"> contact </a>
+      </div>
+
+      <!-- if auth -->
+
+      <div class="col">
+        <a href="/logout" class="logout">
+          <button id="logout-btn" class="btn btn-lg">
+            logout
+          </button>
+        </a>
+      </div>
+      
+    </div>
+
+    <hr class="navseparator">
+
+    {% block content %} {% endblock %}
+
+  </div>
+
+</body>
+
+</html>

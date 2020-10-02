@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<style>
+    #signupBtn {
+        background-color: #ad2a54;
+        color: white;
+    }
+
+    #signupBtn:hover {
+        background-color: #811b3b;
+    }
+
+    #here{
+        color: #ad2a54;
+    }
+
+    #here:hover{
+        color: #811b3b;
+    }
+
+    .text-muted{
+        font-size: 0.7em;
+    }
+
+    input{
+        color: white;
+        background-color: rgb(29, 29, 29);
+        border-style: solid !important;
+        border-color: #131313;
+        padding: 4px;
+        font-size: 1em;
+        width: 20em;
+    }
+
+    input:focus {
+        outline: none !important;
+    }
+
+    label{
+        font-size: 0.9em;
+        margin-top: 0.4em;
+        margin-bottom: -0.08em;
+    }
+
+    li{
+        font-size: 0.8em;
+    }
+
+    .help-block{
+        font-size: 0.8em;
+        color: rgb(138, 138, 138);
+    }
+
+</style>
+
+<div class="container" style="margin-top: 3em;">
+
+    <div class="row"> 
+        <div class="col">
+        <h1 style="font-size: 80px;">
+            <strong>sign-up</strong>
+        </h1>
+
+        <br><br>
+        
+        <h1 style="margin-bottom: 1em; margin-top: -0.4em;">
+            get the best price quotes <br> for your
+                <span style="color: #ad2a54;">
+                    used cars
+                </span> 
+        </h1>
+
+        <p style="
+            font-size: 1.2em; 
+            margin-top: -1em; 
+            margin-bottom: 1.3em;
+            ">
+            already have an account? login
+            <a href="/login" id="here" style="text-decoration: none;">
+                <strong>here</strong>
+            </a>
+        </p>
+        </div>
+
+        <div class="col">
+            <img src="https://pred-predictor.s3.ap-south-1.amazonaws.com/signup.png
+        " draggable="false" 
+        style="min-width: 10em; width: 90%; margin-top: 2.2em; margin-left: 1em;">
+        </div>
+        
+    </div>
+    
+    <!-- <hr style="width: 50%;"> -->
+
+    <div class="row" style="margin-top: 0em">
+        <!-- <div class="col"></div> -->
+        
+        <div class="cols" style="width: 40%;">
+            <form method="POST" class="form-group" style="font-size: 26px;">
+                {% csrf_token %}
+
+                {{form|crispy}}
+
+                <button type="submit" id="signupBtn"
+                class="btn btn-lg"
+                style="margin-top: 1.4em; margin-left: 50%;">
+                    register
+                </button>
+                
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "base.html" %} {% block content %}
+
+<style>
+	h1 {
+		font-size: 5em;
+		text-emphasis: 400;
+	}
+
+	img{
+		border-radius: 6%;
+	}
+
+	a{
+		text-decoration: none !important;
+	}
+
+	#welcomeimage{
+		width: 100%; 
+		margin-top: -1.8em;
+	}
+
+	#login-btn{
+		color: white !important;
+		background-color: #ad2a54 !important;
+	}
+	
+	#loginlink, #signuplink{
+		margin-left: 1.2em;
+	}
+
+	#signup-btn{
+		color: white;
+		background-color: #303030;
+	}
+
+	#login-btn:hover{
+		background-color: #811b3b !important;
+	}
+
+	#signup-btn:hover{
+		background-color: #1f1f1f !important;
+	}
+
+	#extraline{
+		font-size: 3em;
+		color: #8a8a8a;
+		margin-top: -0.3em;
+		margin-left: 1em;
+	}
+
+</style>
+
+<div class="row" style="margin-top: 5.2em;">
+	<div class="col" style="width: 100%">
+		<h1> get the best price quotes for your 
+			<span style="color: #ad2a54;">
+				used cars
+			</span> </h1>
+	</div>
+
+	<div class="col">
+		<img src="https://pred-predictor.s3.ap-south-1.amazonaws.com/car.png" 
+		id = "welcomeimage" draggable="false">
+	</div>
+</div>
+
+<br><hr>
+
+<div class="row" style="margin-top: 2.4em;"
+ class="loginarea">
+	<div class="col-1"></div>
+
+	<div class="col-1">
+		<a href="/login" id="login">
+			<button id="login-btn" class="btn btn-lg">login</button>
+		</a>
+	</div>
+	
+	<div class="col-2">
+		<a href="/register" id="signuplink">
+			<button id="signup-btn" class="btn btn-lg">signup</button>
+		</a>
+	</div>
+
+	<div class="col-8">
+		<p id="extraline"> start exploring right now! </p>
+	</div>
+	
+</div>
+
+{% endblock %}

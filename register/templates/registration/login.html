@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+<style>
+    #loginBtn{
+		background-color: #ad2a54;
+        color: white;
+	}
+
+	#loginBtn:hover{
+		background-color: #811b3b;
+	}
+
+    #here{
+         color: #AD2A54;
+    }
+
+    #here:hover{
+        color: #811b3b;
+    }
+
+    h6{
+		margin-top: 1em;
+		font-size: 1.4em;
+		font-weight: bold;
+	}
+
+	.feature-description{
+		width: 96%;
+		margin-top: 0.6em;
+		font-size: 1.2em;
+	}
+
+    #loginform{
+        font-size: 1.6em; 
+        margin-top: -1.4em;
+        margin-left: 12%;
+    }
+
+    input{
+        color: white;
+        background-color: rgb(29, 29, 29);
+        border-style: solid !important;
+        border-color: #131313;
+        padding: 4px;
+        font-size: 1em;
+    }
+
+    input:focus {
+        outline: none !important;
+    }
+
+    label{
+        font-size: 0.9em;
+        margin-top: 0.4em;
+        margin-bottom: -0.08em;
+    }
+
+    li{
+        font-size: 0.8em;
+    }
+    
+</style>
+
+<div class="container" style="margin-top: 3em;">
+    
+        <h1 style="font-size: 80px;">
+            <strong>login</strong>
+        </h1>
+
+    <div class="row" style="margin-top: 6em;">
+        <div class="col" style="text-align:center; width: 100%;">
+            <img src="https://pred-predictor.s3.ap-south-1.amazonaws.com/city_car.png" draggable="false" 
+            style="width: 100%; margin-top: -4em; margin-left: 2em;">
+        </div>
+
+        <div class="col">
+        <form method="POST" class="form-group" id="loginform">
+            
+            {% csrf_token %}
+            {{form|crispy}}
+            
+            <p style="font-size: 20px; margin-top: 0.6em;">
+                don't have an account? create one 
+                <a href="/register" id="here"
+                    style="text-decoration: none;">
+                    <strong>here</strong>
+                </a>
+            </p>
+
+            <button type="submit" class="btn btn-lg" id="loginBtn" 
+            style="margin-left: 26%; margin-top: 0.6em;">
+                login
+            </button>
+        </form>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
