@@ -3,3 +3,13 @@ from django.http import HttpResponse
 
 def welcome_view(request, *args, **keywordargs):
 	return render(request, 'welcome.html', {})
+
+def about_view(request, *args, **keywordargs):
+	return render(request, 'about.html', {})
+
+
+def contact_view(request, *args, **keywordargs):
+	return render(request, 'contact.html', {})
+
+def team_view(request, *args, **keywordargs):
+	return render(request, 'team.html', {})

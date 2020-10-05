@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% block content %}
+<style>
+  .names{
+    font-size: 1.4em;
+    margin-top: 0.6em;
+    text-align:center;
+  }
+
+  .team-images{
+    margin-left: 11%;
+    width: 80%;
+    border-radius: 2em;
+  }
+
+</style>
+<div class="container" style="margin-top: 3em;">
+
+  <h1 style="font-size: 80px;">
+    <strong>the <span style="color: #ad2a54;">team</span></strong>
+  </h1><br><br>
+
+  <div class="row">
+    <div class="col-4">
+      <a href="https://www.linkedin.com/in/akshit-sarin/" target="_blank">
+        <img src="https://team-page-images.s3.ap-south-1.amazonaws.com/akshit-sarin.png"
+          class="team-images" >
+      </a>
+      <p class="names"> akshit sarin </p>
+    </div>
+
+    <div class="col-4">
+      <a href="https://www.linkedin.com/in/aaryamann-sharma/" target="_blank">
+        <img src="https://team-page-images.s3.ap-south-1.amazonaws.com/aaryamann.png"
+          class="team-images">
+      </a>
+      <p class="names"> aaryamann sharma </p>
+    </div>
+
+    <div class="col-4">
+      <img src="https://pred-predictor.s3.ap-south-1.amazonaws.com/pragya.jpeg" 
+        class="team-images">
+      <p class="names"> pragya kapoor </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
