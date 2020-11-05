@@ -47,42 +47,41 @@
       background: #666666;
     }
 
-    .navibar div{
-      display: flex; 
-			align-items: center; 
-			justify-content: center;
+    .navibar div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .navibar div a{
+    .navibar div a {
       font-size: 1.4em !important;
       text-decoration: none;
       color: #bbbbbb;
     }
 
-    .navibar div a:hover{
+    .navibar div a:hover {
       color: #ad2a54;
     }
 
-    #logout-btn{
+    #logout-btn {
       color: white !important;
       background-color: #ad2a54 !important;
     }
 
-    #logout-btn:hover{
+    #logout-btn:hover {
       background-color: #811b3b !important;
     }
 
-    #logo{
+    #logo {
       font-weight: 700;
       letter-spacing: 4px;
       font-size: 2.2em;
       margin-top: -0.5em;
     }
 
-    hr{
+    hr {
       border-top: solid rgb(43, 43, 43);
     }
-
   </style>
 </head>
 
@@ -94,7 +93,7 @@
         <a href="/"> PREDIE. </a>
       </div>
 
-      <div class="col"> 
+      <div class="col">
         <a href="/team"> team </a>
       </div>
 
@@ -108,6 +107,8 @@
 
       <!-- if auth -->
 
+      {% if user.is_authenticated %}
+
       <div class="col">
         <a href="/logout" class="logout">
           <button id="logout-btn" class="btn btn-lg">
@@ -115,10 +116,12 @@
           </button>
         </a>
       </div>
-      
+
     </div>
 
     <hr class="navseparator">
+
+    {% endif %}
 
     {% block content %} {% endblock %}
 
