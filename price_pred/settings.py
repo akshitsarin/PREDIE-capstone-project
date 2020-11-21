@@ -16,7 +16,7 @@ SECRET_KEY = 'ekj(97u@qg&%9dxqebs_ga)g=14koed133b*$78^wssg&vky7!'
 
 DEBUG = True    # changing to false breaks idk why
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['predie.herokuapp.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
