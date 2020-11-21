@@ -1,1 +1,1 @@
-web: gunicorn price_pred.wsgi --log-file
+web: gunicorn price_pred.wsgi --log-file -
