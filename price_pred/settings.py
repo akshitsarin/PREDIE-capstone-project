@@ -110,14 +110,14 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # redirect to home page after sign up
-LOGIN_REDIRECT_URL = 'http://predie.herokuapp.com/'
-LOGOUT_REDIRECT_URL = 'http://predie.herokuapp.com/'
+LOGIN_REDIRECT_URL = ''
+LOGOUT_REDIRECT_URL = ''
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 if os.getcwd() == '/app':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-    ALLOWED_HOSTS = ['d-bug.herokuapp.com']
+    ALLOWED_HOSTS = ['predie.herokuapp.com']
 
     DEBUG = True
 
