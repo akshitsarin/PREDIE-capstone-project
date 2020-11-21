@@ -110,8 +110,8 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # redirect to home page after sign up
-LOGIN_REDIRECT_URL = '/home'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'http://pred.herokuapp.com/'
+LOGOUT_REDIRECT_URL = 'http://pred.herokuapp.com/'
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 if os.getcwd() == '/app':
