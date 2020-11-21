@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi
+web: gunicorn price_pred.wsgi --log-file
