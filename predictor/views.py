@@ -13,3 +13,9 @@ def contact_view(request, *args, **keywordargs):
 
 def team_view(request, *args, **keywordargs):
 	return render(request, 'team.html', {})
+
+def predict_view(request, *args, **keywordargs):
+	return render(request, 'predict.html', {})
+
+def result_view(request, *args, **keywordargs):
+	return render(request, 'result.html', {})

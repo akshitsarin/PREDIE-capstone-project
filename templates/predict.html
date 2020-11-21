@@ -1,0 +1,107 @@
+{% extends "base.html" %} {% block content %}
+
+<style>
+	h4 {
+		padding-top: 1.2em;
+		letter-spacing: 0.8px;
+	}
+
+	input, select{
+		color: white;
+		background-color: rgb(29, 29, 29);
+		border-style: solid !important;
+		border-color: #131313;
+		padding: 4px;
+		font-size: 1em;
+	}
+
+	input {
+		width: 20em;
+	}
+
+	input:focus {
+        outline: none !important;
+    }
+
+	select {
+		font-size: 1.3em;
+		letter-spacing: 0.8px;
+	}
+
+	#submit {
+		margin-top: 1.4em;
+		margin-left: 5em;
+	}
+
+	#submit{
+		background-color: #ad2a54;
+        color: white;
+	}
+
+	#submit:hover{
+		background-color: #811b3b;
+	}
+</style>
+
+<div class="container" style="margin-top: 3em;">
+	<h1 style="font-size: 80px;">
+		<strong>pre<span style=" color: #ad2a54;">dic</span>tion.
+		</strong>
+	</h1>
+	<h1 style="margin-top: 1em;">
+		Enter the car details to find the approximate<br> price of your
+		<span style=" color: #ad2a54;">used car</span>
+	</h1>
+</div>
+
+<form action="/result/" method="POST">
+{% csrf_token %}
+
+<div class="container" style="margin-top: 2em;">
+	<div class="row">
+			<div class="col-6">
+				<h4>Year of Purchase:</h4>
+				<input id="year-of-purchase" required="required" type="number">
+				<br>
+
+				<h4>Showroom Price in Lacs:</h4>
+				<input id="showroom-price" required="required" type="number">
+				<br>
+
+				<h4>Kilometers Driven:</h4>
+				<input id="dist-driven" required="required" type="number">
+				<br>
+
+				<button type="submit" id="submit" class="btn btn-lg">
+					Get Price!
+				</button>
+			</div>
+			
+			<div class="col-6">
+				<h4>Number of previous owners:</h4>
+				<select id="prev-owners" required="required">
+					<option value="Zero">0 (I am the Original Buyer)</option>
+					<option value="One">1 (2nd Hand)</option>
+					<option value="Two">2 (3rd Hand)</option>
+				</select>
+				<br>
+
+				<h4>Are you the Owner or a Dealer?</h4>
+				<select id="seller-type" required="required">
+					<option value="Owner">Owner</option>
+					<option value="Dealer">Dealer</option>
+				</select>
+				<br>
+
+				<h4>Type of Transmission:</h4>
+				<select id="trans_type" required="required">
+					<option value="Automatic">Automatic</option>
+					<option value="Manual">Manual</option>
+				</select>
+				<br>
+			</div>
+	</div>
+</div>
+</form>
+
+{% endblock %} 

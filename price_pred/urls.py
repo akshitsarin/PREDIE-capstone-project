@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 
-from predictor.views import welcome_view, about_view, contact_view, team_view
+from predictor.views import welcome_view, about_view, contact_view, team_view, predict_view, result_view
 from register.views import register
 
 urlpatterns = [
@@ -11,5 +11,7 @@ urlpatterns = [
   path('register/', register, name='register'),
   path('team/', team_view),
   path('about/', about_view),
-  path('contact/', contact_view)
+  path('contact/', contact_view),
+  path('predict/', predict_view),
+  path('result/', result_view)
 ]

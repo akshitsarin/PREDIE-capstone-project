@@ -19,7 +19,7 @@
 		margin-top: -1.8em;
 	}
 
-	#login-btn {
+	#login-btn , #get-started{
 		color: white !important;
 		background-color: #ad2a54 !important;
 	}
@@ -34,7 +34,7 @@
 		background-color: #303030;
 	}
 
-	#login-btn:hover {
+	#login-btn:hover , #get-started:hover{
 		background-color: #811b3b !important;
 	}
 
@@ -48,10 +48,27 @@
 		margin-top: -0.3em;
 		margin-left: 1em;
 	}
+
+	#welcome-text {
+		margin-top: 0.2em;
+	}
+
+	#logged-in {
+		margin-top: -1.6em;
+		margin-left: 0.6em;
+		padding-bottom: 1em;
+	}
 </style>
 
 <div class="row" style="margin-top: 5.2em;">
 	<div class="col" style="width: 100%">
+		{% if user.is_authenticated %}
+			<h4 id="logged-in">logged in as 
+				<span style="color: #ad2a54;"> <strong> {{ user }} </strong>
+				</span>
+			</h4>
+		{% endif %}
+
 		<h1> get the best price quotes for your
 			<span style="color: #ad2a54;">
 				used cars
@@ -67,16 +84,19 @@
 <br>
 <hr>
 
-{% if user.is_authenticated %}
 <div class="row" style="margin-top: 2.4em;">
-	<h2>Logged in as <strong>{{ user }}</strong></h2>
-</div>
-{% endif %}
-
-{% if not user.is_authenticated %}
-<div class="row" style="margin-top: 2.4em;" class="loginarea">
 	<div class="col-1"></div>
+	
+	{% if user.is_authenticated %}
+	<div class="col-1"></div>
+	<div class="col-2">
+		<a href="/predict">
+			<button id="get-started" class="btn btn-lg">get started!</button>
+		</a>
+	</div>
+	{% endif %}
 
+	{% if not user.is_authenticated %}
 	<div class="col-1">
 		<a href="/login" id="login">
 			<button id="login-btn" class="btn btn-lg">login</button>
@@ -92,8 +112,8 @@
 	<div class="col-8">
 		<p id="extraline"> start exploring right now! </p>
 	</div>
+	{% endif %}
 
 </div>
-{% endif %}
 
 {% endblock %}
