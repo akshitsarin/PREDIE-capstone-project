@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'predictor',
     'register.apps.RegisterConfig',
-    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -65,8 +64,15 @@ WSGI_APPLICATION = 'price_pred.wsgi.application'
 
 # set default database
 # using postgres for heroku, sqlite3 for local
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+# DATABASES = {}
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': str(BASE_DIR) + str('/') + 'db.sqlite3',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -122,4 +128,3 @@ if os.getcwd() == '/app':
     DEBUG = True
 
 django_heroku.settings(locals())
-del DATABASES['default']['OPTIONS']['sslmode']
