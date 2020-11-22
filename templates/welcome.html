@@ -1,11 +1,6 @@
 {% extends "base.html" %} {% block content %}
 
 <style>
-	h1 {
-		font-size: 5em;
-		text-emphasis: 400;
-	}
-
 	img {
 		border-radius: 6%;
 	}
@@ -49,8 +44,10 @@
 		margin-left: 1em;
 	}
 
-	#welcome-text {
+	.welcome-text {
 		margin-top: 0.2em;
+		font-size: 5em !important;
+		text-emphasis: 400;
 	}
 
 	#logged-in {
@@ -69,7 +66,7 @@
 			</h4>
 		{% endif %}
 
-		<h1> get the best price quotes for your
+		<h1 class="welcome-text"> get the best price quotes for your
 			<span style="color: #ad2a54;">
 				used cars
 			</span> </h1>
@@ -89,7 +86,7 @@
 	
 	{% if user.is_authenticated %}
 	<div class="col-1"></div>
-	<div class="col-2">
+	<div class="col-4">
 		<a href="/predict">
 			<button id="get-started" class="btn btn-lg">get started!</button>
 		</a>
