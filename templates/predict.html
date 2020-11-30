@@ -64,6 +64,19 @@
 	#signup-btn:hover {
 		background-color: #1f1f1f !important;
 	}
+
+	#login-to-continue {
+		padding-left: 1em; 
+		margin-top: 0.2em;
+		color: #8a8a8a;
+	}
+
+	#uhohimg {
+		width: 110%;
+		/* background-color: blanchedalmond; */
+		margin-top: 2.2em;
+		margin-left: -2em;
+	}
 </style>
 
 {% if user.is_authenticated %}
@@ -131,16 +144,25 @@
 
 {% else %}
 <div class="container" style="margin-top: 3em;">
+	<div class="row">
+		<div class="col-8">
 
-	<h1 style="font-size: 6em;">
-		<strong>uh<span style=" color: #ad2a54;"> oh!</span>
-		</strong>
-	</h1>
-	<h1 style="margin-top: 1em; font-size: 3.2em;">
-		you must be logged in to predict<br> 
-		the price of your
-		<span style=" color: #ad2a54;">used cars</span>
-	</h1>
+			<h1 style="font-size: 6em;">
+				<strong>uh<span style=" color: #ad2a54;"> oh!</span>
+				</strong>
+			</h1>
+			<h1 style="margin-top: 1em; font-size: 3em;">
+				you must be logged in to predict<br> 
+				the price of your
+				<span style=" color: #ad2a54;">used cars</span>
+			</h1>
+		</div>
+
+		<div class="col-4">
+			<img src="https://pred-predictor.s3.ap-south-1.amazonaws.com/login.png" id="uhohimg" draggable="false">
+		</div>
+
+	</div>
 </div>
 
 <hr id="loginhr">
@@ -148,8 +170,8 @@
 <div class="row">
 
 	<div class="col-4">
-		<h3 style="padding-left: 1em; margin-top: 0.2em;">
-			login or signup to continue
+		<h3 id="login-to-continue">
+			login or signup to continue!
 		</h3>
 	</div>
 	<div class="col-1">
