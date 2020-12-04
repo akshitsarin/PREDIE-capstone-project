@@ -1,13 +1,14 @@
 {% extends "base.html" %} {% block content %}
 
 <style>
+/*the container must be positioned relative:*/
     h4 {
 		padding-top: 1.2em;
 		letter-spacing: 0.8px;
 	}
 
     input, select{
-        color: rgb(214, 214, 214);
+        color: white;
         background-color: rgb(29, 29, 29);
         border-style: solid !important;
         border-color: #131313;
@@ -73,6 +74,7 @@
 
 	#uhohimg {
 		width: 110%;
+		/* background-color: blanchedalmond; */
 		margin-top: 2.2em;
 		margin-left: -2em;
 	}
@@ -94,7 +96,6 @@
 
     .autocomplete-items div {
         padding: 10px;
-		font-size: 0.8em;
         cursor: pointer;
         width: 20em;
         background-color: #292929;
@@ -118,19 +119,14 @@
 	</h1>
 </div>
 
-<hr style="margin-top: 2.4em; width: 60%;">
-
-<form autocomplete="off" action="/result/" method="POST"
-style="margin-top: -1.8em;">
+<form autocomplete="off" action="/result/" method="POST">
     {% csrf_token %}
 
     <div class="container autocomplete" 
         style="margin-top: 2em;">
 
         <h4>Car Name:
-		<input id="carname" type="text" name="carname" 
-		placeholder="Enter Car Name" 
-		style="font-size: 0.8em;width: 70%;"></h4>
+        <input id="carname" type="text" name="myCountry" placeholder="Enter Car Name" style="font-size: 1em;width: 70%;"></h4>
     </div>
         
     <div class="container row">

@@ -19,3 +19,6 @@ def predict_view(request, *args, **keywordargs):
 
 def result_view(request, *args, **keywordargs):
 	return render(request, 'result.html', {})
+
+def test_view(request, *args, **keywordargs):
+	return render(request, 'test_page.html', {})
