@@ -7,7 +7,6 @@ def welcome_view(request, *args, **keywordargs):
 def about_view(request, *args, **keywordargs):
 	return render(request, 'about.html', {})
 
-
 def contact_view(request, *args, **keywordargs):
 	return render(request, 'contact.html', {})
 
@@ -16,9 +15,6 @@ def team_view(request, *args, **keywordargs):
 
 def predict_view(request, *args, **keywordargs):
 	return render(request, 'predict.html', {})
-
-def result_view(request, *args, **keywordargs):
-	return render(request, 'result.html', {})
 
 def test_view(request, *args, **keywordargs):
 	return render(request, 'test_page.html', {})
@@ -2024,3 +2020,23 @@ car_mappings = {
 "Volvo XC60 Inscription D5 BSIV" :1980,
 "Volvo XC90 T8 Excellence BSIV" :1981
 }
+
+def result_view(request, *args, **keywordargs):
+    details = {
+		'name': request.POST.get('carname'),
+		'code': car_mappings[request.POST.get('carname')],
+        'age': 2020 - int(request.POST.get('year_of_purchase')),
+        'price': request.POST.get('showroom-price'),
+        'dist_driven': request.POST.get('dist-driven'),
+        'mileage': request.POST.get('mileage'),
+		'enginesize': request.POST.get('enginesize'),
+		'maxpower': request.POST.get('maxpower'),
+		'enginesize': request.POST.get('enginesize'),
+		'prev_owners': request.POST.get('prev-owners'),
+		'seller_type': request.POST.get('seller-type'),
+		'trans_type': request.POST.get('trans_type'),
+		'fuel_type': request.POST.get('fuel_type'),
+		'seats': request.POST.get('seats'),
+    }
+
+    return render(request, 'result.html', details)

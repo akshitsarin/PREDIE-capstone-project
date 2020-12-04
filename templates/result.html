@@ -1,6 +1,8 @@
 {% extends "base.html" %} {% block content %}
 <style>
-
+    p {
+        font-size: 1.4em !important;
+    }
 </style>
 
 <div class="container" style="margin-top: 3em;">
@@ -24,4 +26,29 @@
         </div>
     </div>
 </div>
+<br><br>
+<div class="container">
+    <h3>Details:</h3>
+    <div class="row"> 
+        <div class="col">
+            <p> Car name: {{ name }}<br>
+                Car code: {{ code }}<br>
+                Car age: {{ age }}<br>
+                Price: {{ price }}<br>
+                dist_driven: {{ dist_driven }}<br>
+                mileage: {{ mileage }}<br>
+            </p>
+        </div>
+        <div class="col">
+            <p> engine size: {{ enginesize }} <br>
+                trans_type: {{ trans_type }} <br>
+                fuel type: {{ fuel_type }} <br>
+                seller_type: {{ seller_type }} <br>
+                prev_owners: {{ prev_owners }} <br>
+                seats: {{ seats }}<br>
+            </p>
+        </div>
+    </div> 
+</div>
+
 {% endblock %}
