@@ -1,31 +1,33 @@
 {% extends "base.html" %} {% block content %}
 
 <style>
-    h4 {
+	h4 {
 		padding-top: 1.2em;
 		letter-spacing: 0.8px;
 	}
 
-    input, select{
-        color: rgb(214, 214, 214);
-        background-color: rgb(29, 29, 29);
-        border-style: solid !important;
-        border-color: #131313;
-        padding: 4px;
-        font-size: 1em;
-    }
-
-	input {
-		width: 20em;
+	input, select{
+		color: rgb(214, 214, 214);
+		background-color: rgb(29, 29, 29);
+		border-style: solid !important;
+		border-color: #131313;
+		padding: 4px;
+		font-size: 1em;
+		letter-spacing: 0.8px;
 	}
 
-    input[type=text] {
-        background-color: #1D1D1D;
-    }
+	input {
+		width: 100%;
+	}
 
-    select {
+	input[type=text] {
+		background-color: #1D1D1D;
+	}
+
+	select {
 		font-size: 1.3em;
 		letter-spacing: 0.8px;
+		width: 100%;
 	}
 
 	#loginhr {
@@ -33,14 +35,11 @@
 		padding-bottom: 2em !important;
 	}
 
-	#submit {
-		margin-top: 1.4em;
-		margin-left: 5em;
-	}
-
 	#submit{
+		width: 100%;
+		margin-top: 2.4em !important;
 		background-color: #ad2a54;
-        color: white;
+		color: white;
 	}
 
 	#submit:hover{
@@ -77,32 +76,32 @@
 		margin-left: -2em;
 	}
 
-    .autocomplete {
-        position: relative;
-        display: inline-block;
-    }
+	.autocomplete {
+		position: relative;
+		display: inline-block;
+	}
 
-    .autocomplete-items {
-        position: absolute;
-        border-bottom: none;
-        border-top: none;
-        z-index: 99;
-        top: 100%;
-        left: 0;
-        right: 0;
-    }
+	.autocomplete-items {
+		position: absolute;
+		border-bottom: none;
+		border-top: none;
+		z-index: 99;
+		top: 100%;
+		left: 0;
+		right: 0;
+	}
 
-    .autocomplete-items div {
-        padding: 10px;
+	.autocomplete-items div {
+		padding: 10px;
 		font-size: 0.8em;
-        cursor: pointer;
-        width: 20em;
-        background-color: #292929;
-    }
+		cursor: pointer;
+		width: 20em;
+		background-color: #292929;
+	}
 
-    .autocomplete-items div:hover {
-        background-color: #1D1D1D; 
-    }
+	.autocomplete-items div:hover {
+		background-color: #1D1D1D; 
+	}
 </style>
 
 {% if user.is_authenticated %}
@@ -122,60 +121,92 @@
 
 <form autocomplete="off" action="/result/" method="POST"
 style="margin-top: -1.8em;">
-    {% csrf_token %}
+	{% csrf_token %}
 
-    <div class="container autocomplete" 
-        style="margin-top: 2em;">
+	<div class="container autocomplete" 
+		style="margin-top: 2em;">
 
-        <h4>Car Name:
+		<h4>Car Name:
 		<input id="carname" type="text" name="carname" 
 		placeholder="Enter Car Name" 
-		style="font-size: 0.8em;width: 70%;"></h4>
-    </div>
-        
-    <div class="container row">
-        <div class="col-6">
-            <h4>Year of Purchase:</h4>
-            <input id="year-of-purchase" required="required" type="number">
-            <br>
-            
-            <h4>Showroom Price in Lacs:</h4>
-            <input id="showroom-price" required="required" type="number">
-            <br>
-            
-            <h4>Kilometers Driven:</h4>
-            <input id="dist-driven" required="required" type="number">
-            <br>
-            
-            <button type="submit" id="submit" class="btn btn-lg">
-                Get Price!
-            </button>
-        </div>
-        
-        <div class="col-6">
-            <h4>Number of previous owners:</h4>
-            <select id="prev-owners" required="required">
-                <option value="Zero">0 (I am the Original Buyer)</option>
-                <option value="One">1 (2nd Hand)</option>
-                <option value="Two">2 (3rd Hand)</option>
-            </select>
-            <br>
-            
-            <h4>Are you the Owner or a Dealer?</h4>
-            <select id="seller-type" required="required">
-                <option value="Owner">Owner</option>
-                <option value="Dealer">Dealer</option>
-            </select>
-            <br>
-            
-            <h4>Type of Transmission:</h4>
-            <select id="trans_type" required="required">
-                <option value="Automatic">Automatic</option>
-                <option value="Manual">Manual</option>
-            </select>
-            <br>
-        </div>
-    </div>
+		style="font-size: 0.8em;width: 78%;"></h4>
+	</div>
+		
+	<div class="container row">
+		<div class="col-5">
+			<h4>Year of Purchase:</h4>
+				<input id="year-of-purchase" required="required" type="number"
+			min=1980>
+			<br>
+			
+			<h4>Showroom Price in Lacs:</h4>
+				<input id="showroom-price" required="required" type="number"
+			min=0 step="0.1">
+			<br>
+			
+			<h4>Kilometers Driven:</h4>
+				<input id="dist-driven" required="required" type="number"
+			min=0>
+			<br>
+			
+			<h4>Mileage:</h4>
+				<input id="mileage" required="required" type="number" step="0.01" min=0>
+			<br>
+			
+			<h4>Engine Size (in CC):</h4>
+				<input id="mileage" required="required" type="number" min=0>
+			<br>
+			
+			<h4>Max Power (in BHP):</h4>
+				<input id="maxpower" required="required" type="number">
+			<br>
+		</div>
+		
+		<div class="col-1"></div> 
+		<div class="col-5">
+			<h4>Number of previous owners:</h4>
+			<select id="prev-owners" required="required">
+				<option value="Zero">0 (I am the Original Buyer)</option>
+				<option value="One">1 (2nd Hand)</option>
+				<option value="Two">2 (3rd Hand)</option>
+				<option value="Three">3 (4+ Owners)</option>
+			</select>
+			<br>
+			
+			<h4>Are you the Owner or a Dealer?</h4>
+			<select id="seller-type" required="required">
+				<option value="Owner">Owner</option>
+				<option value="Dealer">Dealer</option>
+				<option value="TrustmarkDealer">Trustmark Dealer</option>
+			</select>
+			<br>
+			
+			<h4>Type of Transmission:</h4>
+			<select id="trans_type" required="required">
+				<option value="Automatic">Automatic</option>
+				<option value="Manual">Manual</option>
+			</select>
+			<br>
+			
+			<h4>Fuel Type:</h4>
+			<select id="fuel_type" required="required">
+				<option value="Petrol">Petrol</option>
+				<option value="Diesel">Diesel</option>
+				<option value="CNG">CNG</option>
+				<option value="Electric">Electric</option>
+				<option value="LPG">LPG</option>
+			</select>
+			<br>
+			
+			<h4>Number of Seats:</h4>
+				<input id="mileage" required="required" type="number" min=0 max=10>
+			<br>
+
+			<button type="submit" id="submit" class="btn btn-lg">
+				get price!
+			</button>
+		</div>
+	</div>
 </form>
 
 <script>
@@ -185,64 +216,64 @@ function autocomplete(inp, arr) {
   var currentFocus;
   /*execute a function when someone writes in the text field:*/
   inp.addEventListener("input", function(e) {
-      var a, b, i, val = this.value;
-      /*close any already open lists of autocompleted values*/
-      closeAllLists();
-      if (!val) { return false;}
-      currentFocus = -1;
-      /*create a DIV element that will contain the items (values):*/
-      a = document.createElement("DIV");
-      a.setAttribute("id", this.id + "autocomplete-list");
-      a.setAttribute("class", "autocomplete-items");
-      this.parentNode.appendChild(a);
-      /*for each item in the array...*/
-      for (i = 0; i < arr.length; i++) {
-        /*check if the item starts with the same letters as the text field value:*/
-        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-          /*create a DIV element for each matching element:*/
-          b = document.createElement("DIV");
-          /*make the matching letters bold:*/
-          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-          b.addEventListener("click", function(e) {
-              inp.value = this.getElementsByTagName("input")[0].value;
-              closeAllLists();
-          });
-          a.appendChild(b);
-        }
-      }
+	  var a, b, i, val = this.value;
+	  /*close any already open lists of autocompleted values*/
+	  closeAllLists();
+	  if (!val) { return false;}
+	  currentFocus = -1;
+	  /*create a DIV element that will contain the items (values):*/
+	  a = document.createElement("DIV");
+	  a.setAttribute("id", this.id + "autocomplete-list");
+	  a.setAttribute("class", "autocomplete-items");
+	  this.parentNode.appendChild(a);
+	  /*for each item in the array...*/
+	  for (i = 0; i < arr.length; i++) {
+		/*check if the item starts with the same letters as the text field value:*/
+		if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+		  /*create a DIV element for each matching element:*/
+		  b = document.createElement("DIV");
+		  /*make the matching letters bold:*/
+		  b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+		  b.innerHTML += arr[i].substr(val.length);
+		  b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+		  b.addEventListener("click", function(e) {
+			  inp.value = this.getElementsByTagName("input")[0].value;
+			  closeAllLists();
+		  });
+		  a.appendChild(b);
+		}
+	  }
   });
 
   function addActive(x) {
-    if (!x) return false;
+	if (!x) return false;
 
-    removeActive(x);
-    if (currentFocus >= x.length) currentFocus = 0;
-    if (currentFocus < 0) currentFocus = (x.length - 1);
+	removeActive(x);
+	if (currentFocus >= x.length) currentFocus = 0;
+	if (currentFocus < 0) currentFocus = (x.length - 1);
 
-    x[currentFocus].classList.add("autocomplete-active");
+	x[currentFocus].classList.add("autocomplete-active");
   }
 
   function removeActive(x) {
-    /*a function to remove the "active" class from all autocomplete items:*/
-    for (var i = 0; i < x.length; i++) {
-      x[i].classList.remove("autocomplete-active");
-    }
+	/*a function to remove the "active" class from all autocomplete items:*/
+	for (var i = 0; i < x.length; i++) {
+	  x[i].classList.remove("autocomplete-active");
+	}
   }
   function closeAllLists(elmnt) {
-    /*close all autocomplete lists in the document,
-    except the one passed as an argument:*/
-    var x = document.getElementsByClassName("autocomplete-items");
-    for (var i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != inp) {
-        x[i].parentNode.removeChild(x[i]);
-      }
-    }
+	/*close all autocomplete lists in the document,
+	except the one passed as an argument:*/
+	var x = document.getElementsByClassName("autocomplete-items");
+	for (var i = 0; i < x.length; i++) {
+	  if (elmnt != x[i] && elmnt != inp) {
+		x[i].parentNode.removeChild(x[i]);
+	  }
+	}
   }
   /*execute a function when someone clicks in the document:*/
   document.addEventListener("click", function (e) {
-      closeAllLists(e.target);
+	  closeAllLists(e.target);
   });
 }
 
