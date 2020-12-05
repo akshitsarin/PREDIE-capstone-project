@@ -12,7 +12,6 @@
 		border-style: solid !important;
 		border-color: #131313;
 		padding: 4px;
-		font-size: 1em;
 		letter-spacing: 0.8px;
 	}
 
@@ -25,7 +24,7 @@
 	}
 
 	select {
-		font-size: 1.3em;
+		font-size: 1.25em;
 		letter-spacing: 0.8px;
 		width: 100%;
 	}
@@ -36,10 +35,12 @@
 	}
 
 	#submit{
-		width: 100%;
-		margin-top: 2.4em !important;
+		width: 89%;
+		margin-top: 1.8em !important;
+		margin-left: 0.9em;
 		background-color: #ad2a54;
 		color: white;
+		font-size: 1.4em;
 	}
 
 	#submit:hover{
@@ -135,22 +136,17 @@ style="margin-top: -1.8em;">
 	<div class="container row">
 		<div class="col-5">
 			<h4>Year of Purchase:</h4>
-				<input id="year_of_purchase" name="year_of_purchase" required="required" type="number"
+				<input id="year_of_purchase" name="year_of_purchase" required="required" type="number" placeholder="Eg. 2018"
 			min="1980" max="2020">
 			<br>
 			
-			<h4>Showroom Price in Lacs:</h4>
-				<input id="showroom-price" name="showroom-price" required="required" type="number"
-			min=0 step="0.1">
-			<br>
-			
-			<h4>Kilometers Driven:</h4>
-				<input id="dist-driven" name="dist-driven" required="required" type="number"
+			<h4>Distance Driven:</h4>
+				<input id="dist-driven" name="dist-driven" required="required" type="number" placeholder="in Kilometers"
 			min=0>
 			<br>
 			
 			<h4>Mileage:</h4>
-				<input id="mileage" name="mileage" required="required" type="number" step="0.01" min=0>
+				<input id="mileage" name="mileage" required="required" type="number" step="0.01" min="0" placeholder="in KMpL">
 			<br>
 			
 			<h4>Engine Size (in CC):</h4>
@@ -202,10 +198,10 @@ style="margin-top: -1.8em;">
 				<input id="seats" name="seats" required="required" type="number" min=0 max=10>
 			<br>
 
-			<button type="submit" id="submit" class="btn btn-lg">
-				get price!
-			</button>
 		</div>
+		<button type="submit" id="submit" class="btn btn-lg">
+			get price!
+		</button>
 	</div>
 </form>
 
