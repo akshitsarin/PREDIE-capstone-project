@@ -2026,6 +2026,10 @@ def result_view(request, *args, **keywordargs):
 		'Petrol' : 4,
 	}
 
+	if request.POST.get('carname') not in car_mappings:
+		return render(request, 'try_again.html')
+		
+
 	details = {
 		'name': request.POST.get('carname'),
 		'code': car_mappings[request.POST.get('carname')],
@@ -2061,7 +2065,7 @@ def result_view(request, *args, **keywordargs):
 		# prev owners
 		int(details['prev_owners']),
 		# mileage
-		int(details['mileage']),
+		float(details['mileage']),
 		# engine
 		int(details['enginesize']),
 		# maxpower
