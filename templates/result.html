@@ -3,55 +3,75 @@
     p {
         font-size: 1.4em !important;
     }
+
+    span {
+        font-weight: bold;
+    }
+
+    .description {
+        margin-top:0em;
+        line-height: 1.4em;
+    }
+
+    #goBack {
+        color: white;
+        background-color: #ad2a54;
+    }
+
+    #goBack:hover {
+        background-color: #811b3b;
+    }
+    
 </style>
 
 <div class="container" style="margin-top: 3em;">
 	<h1 style="font-size: 80px;">
-		<strong>predicted <span style="color: #ad2a54;">price</span></strong>
+		<strong>predicted <span>price</span></strong>
     </h1><br><br>
     
-    <h3>Predicted Price for your car is: {{ predicted_price }}</h3> 
+    <h2>Predicted Price for your 
+        <span>{{ name }}</span>
+        is: <strong>₹ {{ predicted_price }} Lacs </strong></h3> 
 </div>
 
-<div class="container" style="margin-top: 2em;">
+<div class="container" style="margin-top: 2.4em;">
 	<div class="row">
-		<div class="col-4">
-            <div style="width:100%;height:0;padding-bottom:75%;position:relative;">
-                <iframe src="https://giphy.com/embed/QdjjW71YLrzWg" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-            </div>
-        </div>
-
-        <div class="col-1"></div>
-
         <div class="col-6">
-            <h1 style="margin-top: 2em;">lmao khatara car, bech de xD</h1></div>
+            <h2 style="margin-top: 1em;"><strong>Verify</strong> your car details:</h2> <br>
+            <h4 class="description">
+                You have a/an <span>{{ name }}</span>, which is a <span>{{ seats }}</span>
+                seater car with an engine of <span>{{ enginesize }} CC</span>. It has
+                <span>{{ prev_owners }}</span> previous owners, is <span>{{ age }}</span> years
+                old and has <span>{{ transmission_text }}</span> transmission. It is fueled by
+                <span> {{ fuel_text }}</span> and after being driven <span> {{ dist_driven }} KM
+                </span>, provides a mileage of <span>{{ mileage }} KMpL</span>.
+            </h4>
         </div>
+
+		<div class="col-4">
+            <img src="https://pred-predictor.s3.ap-south-1.amazonaws.com/money.png"
+            style="width: 100%;">
+        </div>
+
+
     </div>
 </div>
+
 <br><hr style="width: 60%;">
-<div class="container">
-    <p>(faltu) verify data from prev page</p> <br>
-    <h3>Details:</h3>
-    <div class="row"> 
-        <div class="col">
-            <p> Car name: {{ name }}<br>
-                Car code: {{ code }}<br>
-                Car age: {{ age }}<br>
-                Price: {{ price }}<br>
-                dist_driven: {{ dist_driven }}<br>
-                mileage: {{ mileage }}<br>
-            </p>
+
+<div class="container" style="margin-top: 2em">
+    <div class="row">
+        <div class="col-4">
+            <h3 style="color: #8a8a8a;">Want to edit your details?</h3>
         </div>
-        <div class="col">
-            <p> engine size: {{ enginesize }} <br>
-                trans_type: {{ trans_type }} <br>
-                fuel type: {{ fuel_type }} <br>
-                seller_type: {{ seller_type }} <br>
-                prev_owners: {{ prev_owners }} <br>
-                seats: {{ seats }}<br>
-            </p>
+        <div class="col-2">
+            <a href="/predict">
+                <button id="goBack" class="btn btn-lg">
+                    go back
+                </button>
+            </a>
         </div>
-    </div> 
+    </div>
 </div>
 
 {% endblock %}

@@ -46,7 +46,7 @@
 
 	.welcome-text {
 		margin-top: 0.2em;
-		font-size: 5em !important;
+		font-size: 4em !important;
 		text-emphasis: 400;
 	}
 
@@ -61,15 +61,13 @@
 	<div class="col" style="width: 100%">
 		{% if user.is_authenticated %}
 			<h4 id="logged-in">logged in as 
-				<span style="color: #ad2a54;"> <strong> {{ user }} </strong>
+				<span> <strong> {{ user }} </strong>
 				</span>
 			</h4>
 		{% endif %}
 
 		<h1 class="welcome-text"> get the best price quotes for your
-			<span style="color: #ad2a54;">
-				used cars
-			</span> </h1>
+			<span>used cars</span> </h1>
 	</div>
 
 	<div class="col">

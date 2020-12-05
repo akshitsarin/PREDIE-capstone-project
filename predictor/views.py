@@ -2031,9 +2031,11 @@ def result_view(request, *args, **keywordargs):
 		'code': car_mappings[request.POST.get('carname')],
 		'dist_driven': request.POST.get('dist-driven'),
 		'fuel_type': mappings[request.POST.get('fuel_type')],
+		'fuel_text': request.POST.get('fuel_type'),
 		'price': request.POST.get('showroom-price'),
 		'seller_type': mappings[request.POST.get('seller-type')],
 		'transmission': mappings[request.POST.get('trans_type')],
+		'transmission_text': request.POST.get('trans_type'),
 		'prev_owners': mappings[request.POST.get('prev-owners')],
         'mileage': request.POST.get('mileage'),
 		'enginesize': request.POST.get('enginesize'),
@@ -2071,5 +2073,6 @@ def result_view(request, *args, **keywordargs):
 	]
 
 	details['predicted_price'] = model.predict([params])
+	details['predicted_price'] = round(details['predicted_price'][0], 2)
 
 	return render(request, 'result.html', details)
