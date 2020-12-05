@@ -7,7 +7,6 @@ django-crispy-forms==1.9.1
 django-heroku==0.3.1
 django-markwhat==1.6.2
 django-multiforloop==0.2.1
-en-core-web-sm==2.3.1
 entrypoints==0.3
 gunicorn==20.0.4
 httplib2==0.14.0
