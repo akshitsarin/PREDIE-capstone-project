@@ -1,7 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.models import User
+
 import xgboost
 import joblib
+
+import smtplib
+from email.message import EmailMessage
 
 def welcome_view(request, *args, **keywordargs):
 	return render(request, 'welcome.html', {})
@@ -21,6 +26,41 @@ def predict_view(request, *args, **keywordargs):
 def test_view(request, *args, **keywordargs):
 	return render(request, 'test_page.html', {})
 
+def sent_quote_view(request, *args, **keywordargs):
+	username = request.user.username;
+	email_id = ""
+	carname = request.POST.get('carname')
+	price = request.POST.get('price')
+
+	for i in User.objects.raw('SELECT * FROM auth_user WHERE username = %s', [username]):
+		email_id = i.email
+
+	context = {}
+	context['username'] = username
+	context['email'] = email_id
+	context['carname'] = carname
+	
+	send_price_quote(email_id, username, carname, price)
+	return render(request, 'quote_sent_page.html', context)
+
+def send_price_quote(email_id, username, carname, price):
+	to_send = EmailMessage()
+
+	msg = "Hey There " + str(username) + "!\n\n" + "Here is your requested price quote -\n\n" + \
+		"Your " + str(carname) + " has a resale value of Rs. " + str(price) + " Lacs.\n\n" + \
+		"You can visit the PREDIE portal again to update the details and obtain a new price quote.\n\n" + \
+		"Have a nice day!\nTeam PREDIE"
+
+	to_send.set_content(msg)
+
+	to_send['From'] = "team.predie@gmail.com"
+	to_send['To'] = str(email_id)
+	to_send['Subject'] = "PREDIE : Requested Price Quote for your " + str(carname) + "!"
+
+	s = smtplib.SMTP('smtp.gmail.com', 587)
+	s.starttls()
+	s.login("team.predie@gmail.com", "predie420")
+	s.send_message(to_send)
 
 def result_view(request, *args, **keywordargs):
 
@@ -2036,7 +2076,6 @@ def result_view(request, *args, **keywordargs):
 		'dist_driven': request.POST.get('dist-driven'),
 		'fuel_type': mappings[request.POST.get('fuel_type')],
 		'fuel_text': request.POST.get('fuel_type'),
-		'price': request.POST.get('showroom-price'),
 		'seller_type': mappings[request.POST.get('seller-type')],
 		'transmission': mappings[request.POST.get('trans_type')],
 		'transmission_text': request.POST.get('trans_type'),
@@ -2077,6 +2116,12 @@ def result_view(request, *args, **keywordargs):
 	]
 
 	details['predicted_price'] = model.predict([params])
-	details['predicted_price'] = round(details['predicted_price'][0], 2)
+	details['predicted_price'] = 2.71828**round(details['predicted_price'][0], 2)
+
+	# convert to lacs
+	x = str(int(details['predicted_price']))[:-3]
+	x = x[:-2] + "." + x[-2:]
+
+	details['predicted_price'] = x
 
 	return render(request, 'result.html', details)

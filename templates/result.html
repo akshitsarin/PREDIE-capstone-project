@@ -22,6 +22,11 @@
     #goBack:hover {
         background-color: #811b3b;
     }
+
+    .idk {
+        color: #8a8a8a; 
+        font-size: 1.4em;
+    }
     
 </style>
 
@@ -60,10 +65,16 @@
 
 <br><hr style="width: 60%;">
 
+<form action="/sent/" method="POST">
+    {% csrf_token %}
+    <input id="carname" type="hidden" name="carname" value="{{name}}">
+    <input id="price" type="hidden" name="price" value="{{predicted_price}}">
+
+
 <div class="container" style="margin-top: 2em">
     <div class="row">
-        <div class="col-4">
-            <h3 style="color: #8a8a8a;">Want to edit your details?</h3>
+        <div class="col-3">
+            <h3 class="idk">Want to edit your details?</h3>
         </div>
         <div class="col-2">
             <a href="/predict">
@@ -72,7 +83,22 @@
                 </button>
             </a>
         </div>
+        <div class="col-3"> 
+            <h3 class="idk">
+                want to get the price quote on mail?
+            </h3>
+        </div>
+        <div class="col-2">
+            <a href="/sent">
+                <button id="goBack" class="btn btn-lg">
+                    yes!
+                </button>
+            </a>
+        </div>
     </div>
 </div>
+
+</form>
+
 
 {% endblock %}

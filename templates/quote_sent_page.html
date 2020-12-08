@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block content %}
+
+<style>
+	#predictAgain-btn{
+	  color: white !important;
+	  background-color: #ad2a54 !important;
+	}
+
+	#predictAgain-btn:hover{
+	  background-color: #811b3b !important;
+	}
+
+	.predictAgain{
+		margin-left: 30%;
+		margin-top: 5em;
+	}
+
+	a{
+		text-decoration: none !important;
+	}
+</style>
+
+<div class="container" style="margin-top: 3em;">
+
+	<div class="row">
+		<div class="col">
+			<h1 class="heading">
+				<strong>price quote <span>sent!</span></strong>
+            </h1>
+            
+		<br><br>
+
+	<div class="row">
+	  <div class="col" style="width: 50%">
+		<h4 style="line-height: 1.6em;"> the price quote has been successfully sent to <span> 
+            <strong> {{ email }} </span></strong>
+		</h4>
+				
+		<div class="predictAgain">
+			<a href="/predict">
+				<button id="predictAgain-btn" class="btn btn-lg">
+					predict again!
+				</button>
+			</a>
+		</div>
+
+	  </div>
+
+	  <div class="col">
+		<p style="text-align: center">
+		  <img src="https://pred-predictor.s3.ap-south-1.amazonaws.com/mail.png" 
+		  alt="contact_us" draggable="false"
+		style="margin-top: -4em; margin-left: -2em; width:66%;">
+		</p>
+	  </div>
+
+	</div>
+</div>
+
+{% endblock %} 
