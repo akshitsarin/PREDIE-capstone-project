@@ -41,6 +41,26 @@ def sent_quote_view(request, *args, **keywordargs):
 	context['carname'] = carname
 	
 	send_price_quote(email_id, username, carname, price)
+
+	import os
+	from twilio.rest import Client
+
+	account = 'AC87a4e6a111a20e65edf29ddc9c457a27'
+	token = "32cb25504931f09cd10180a960cb6350"
+
+	client = Client(account, token)
+
+	from_number = 'whatsapp:+14155238886'
+	to_number = 'whatsapp:+919810092055'
+
+	mess = client.messages.create(
+		body="Hey there " + str(context['username']) + "!\n\n" + "Here is your requested price quote -\n\n" + \
+		"Your " + str(context['carname']) + " has a resale value of Rs. " + str(price) + " Lacs.\n\n" + \
+		"You can visit the PREDIE portal again to update the details and obtain a new price quote.\n\n" + \
+		"Have a nice day!\nTeam PREDIE",
+		from_=from_number,
+		to=to_number)
+
 	return render(request, 'quote_sent_page.html', context)
 
 def send_price_quote(email_id, username, carname, price):
