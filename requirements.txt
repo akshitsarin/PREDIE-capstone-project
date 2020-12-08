@@ -32,6 +32,7 @@ selenium==3.141.0
 sklearn==0.0
 static3==0.7.0
 threadpoolctl==2.1.0
+twilio==6.49.0
 urllib3==1.25.9
 whitenoise==5.1.0
 xgboost==0.90
