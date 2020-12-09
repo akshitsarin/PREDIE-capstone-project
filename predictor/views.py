@@ -2138,10 +2138,16 @@ def result_view(request, *args, **keywordargs):
 	details['predicted_price'] = model.predict([params])
 	details['predicted_price'] = 2.71828**round(details['predicted_price'][0], 2)
 
-	# convert to lacs
-	x = str(int(details['predicted_price']))[:-3]
-	x = x[:-2] + "." + x[-2:]
+	# print(">>>", details['predicted_price'])
 
-	details['predicted_price'] = x
+	def to_lacs(p):
+		p = str(int(p))
+		p = p[:-3]
+		p = str(p[:-2]) + "." + str(p[-2:])
+		if p[-2:] == "00":
+			p = p[:-2] + "01"
+		return p
+
+	details['predicted_price'] = to_lacs(details['predicted_price'])
 
 	return render(request, 'result.html', details)
