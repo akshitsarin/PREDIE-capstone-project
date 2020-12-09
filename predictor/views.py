@@ -56,7 +56,7 @@ def sent_quote_view(request, *args, **keywordargs):
 	mess = client.messages.create(
 		body="Hey there " + str(context['username']) + "!\n\n" + "Here is your requested price quote -\n\n" + \
 		"Your " + str(context['carname']) + " has a resale value of Rs. " + str(price) + " Lacs.\n\n" + \
-		"You can visit the PREDIE portal again to update the details and obtain a new price quote.\n\n" + \
+		"You can visit the PREDIE portal at http://predie.herokuapp.com/ to update the details and obtain a new price quote.\n\n" + \
 		"Have a nice day!\nTeam PREDIE",
 		from_=from_number,
 		to=to_number)
@@ -2144,8 +2144,6 @@ def result_view(request, *args, **keywordargs):
 		p = str(int(p))
 		p = p[:-3]
 		p = str(p[:-2]) + "." + str(p[-2:])
-		if p[-2:] == "00":
-			p = p[:-2] + "01"
 		return p
 
 	details['predicted_price'] = to_lacs(details['predicted_price'])
