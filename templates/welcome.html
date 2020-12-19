@@ -60,7 +60,7 @@
 <div class="row" style="margin-top: 5.2em;">
 	<div class="col" style="width: 100%">
 		{% if user.is_authenticated %}
-			<h4 id="logged-in">logged in as 
+			<h4 id="logged-in" style="margin-top: 0.2em;">logged in as 
 				<span> <strong> {{ user }} </strong>
 				</span>
 			</h4>
@@ -79,11 +79,10 @@
 <br>
 <hr>
 
-<div class="row" style="margin-top: 2.4em;">
-	<div class="col-1"></div>
+<div class="row" style="margin-top: 2.4em; margin-left: 4em;">
 	
 	{% if user.is_authenticated %}
-	<div class="col-1"></div>
+	<div class="col-6">go to the prediction portal</div>
 	<div class="col-4">
 		<a href="/predict">
 			<button id="get-started" class="btn btn-lg">get started!</button>
