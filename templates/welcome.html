@@ -37,10 +37,13 @@
 		background-color: #1f1f1f !important;
 	}
 
-	#extraline {
-		font-size: 3em;
+	#extraline, #extraline-li {
+		font-size: 2em;
 		color: #8a8a8a;
-		margin-top: -0.3em;
+		margin-top: 0em;
+	}
+
+	#extarline{
 		margin-left: 1em;
 	}
 
@@ -79,11 +82,14 @@
 <br>
 <hr>
 
-<div class="row" style="margin-top: 2.4em; margin-left: 4em;">
+<div class="row" style="margin-top: 2.4em; margin-left: 3em;">
 	
 	{% if user.is_authenticated %}
-	<div class="col-6">go to the prediction portal</div>
-	<div class="col-4">
+	<div class="col-5" style="margin-left: -2em;">
+		<p id="extraline-li"> start exploring right now! </p>
+	</div>
+
+	<div class="col-4" style="margin-left: -1em;">
 		<a href="/predict">
 			<button id="get-started" class="btn btn-lg">get started!</button>
 		</a>
