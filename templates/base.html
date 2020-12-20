@@ -32,6 +32,13 @@
       color: #CFCFCF;
     }
 
+    #githubLink {
+      display: inline-flex; 
+      position: absolute; 
+      right: 1em; 
+      top: 1.2em;
+    }
+
     .heading{
       font-size: 80px !important;
       text-emphasis: 400 !important;
@@ -44,7 +51,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #c0c0c0;
+      background: #575757;
       border-radius: 10px;
     }
 
@@ -101,7 +108,11 @@
 </head>
 
 <body>
-  <div class="container" style="width: 98%;">
+  <div id="githubLink">
+    <a class="github-button" href="https://github.com/akshitsarin" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-show-count="true" data-size="large" aria-label="Follow @akshitsarin on GitHub">@akshitsarin</a>
+  </div>
+    
+    <div class="container" style="width: 98%;">
 
     <div class="row navibar" style="width: 98%; margin: auto;">
       <div class="col" id="logo">
@@ -142,7 +153,7 @@
 
   </div>
 
-  <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
 
 </body>
 
