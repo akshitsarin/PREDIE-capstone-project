@@ -79,7 +79,7 @@ def send_price_quote(email_id, username, carname, price):
 
 	s = smtplib.SMTP('smtp.gmail.com', 587)
 	s.starttls()
-	s.login("team.predie@gmail.com", "predie420")
+	s.login(email, password)
 	s.send_message(to_send)
 
 def result_view(request, *args, **keywordargs):
